@@ -19,6 +19,7 @@ setup-musa-mynext/
 │   ├── motion-design/         # Animaciones avanzadas y microinteracciones
 │   ├── skill-tailwind/        # Configuración de Tailwind CSS v4 (@theme)
 │   ├── uipro-max/             # UI/UX pro y componentes Bento Grid
+│   ├── setup-mynext/          # Inicialización local y control de flujo de sesión
 │   └── README.md              # Guía de skills
 ├── 🎨 typography/             # Jerarquía tipográfica y emparejamiento de fuentes MYNEXT
 │   └── README.md              # Guía de fuentes y estéticas
