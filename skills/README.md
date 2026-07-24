@@ -20,3 +20,6 @@ En esta carpeta se encuentran las **skills** personalizadas registradas para Ant
 
 ### 5. `uipro-max/`
 - **Descripción**: Estructuras avanzadas de componentes, Bento Grids y sistemas de diseño para experiencia de usuario (UX/UI) de nivel profesional.
+
+### 6. `setup-mynext/`
+- **Descripción**: Inicializa y levanta el entorno de desarrollo local (setup.sh, rama dev, docs) al iniciar un nuevo proyecto o sesión.
