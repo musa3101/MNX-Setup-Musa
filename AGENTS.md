@@ -24,7 +24,7 @@ Si estás construyendo una web, asume que estas reglas están activas y combína
 - Protege los diseños al internacionalizarlos (i18n), evitando traducciones literales y validando que las palabras más largas (como en español) no rompan los contenedores.
 
 ## 4. Flujo de Trabajo (Git & Cloudflare) - REGLA ESTRICTA
-- **NUNCA** hagas `git commit` y `git push` a la rama `main` de forma automática.
+- **NUNCA** hagas `git commit` ni `git push` de forma automática sin confirmación.
 - Todo el trabajo, pruebas locales y cambios en vivo se deben hacer en una rama secundaria llamada `dev`.
 - Si el usuario te pide levantar el entorno, ejecuta el archivo `setup.sh` (si existe) para automatizar la creación de la rama `dev`, el `npm install` y el `npm run dev`.
-- **Solo** fusionarás `dev` con `main` y harás push cuando el usuario te dé el "OK" explícito y diga que los cambios están listos para producción (Cloudflare).
+- **Regla de Aprobación**: Solo realizarás commits locales en `dev`, fusiones (merge) de `dev` a `main`, o subidas (push) a Git cuando el usuario dé su aprobación explícitamente mediante expresiones como: *"ok"*, *"me gustó"*, *"merge"*, *"fusión de lo que hicimos"* o *"sube a git"*. Sin esta confirmación directa, no debes guardar ni subir ningún cambio a los repositorios.
