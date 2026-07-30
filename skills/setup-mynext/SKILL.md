@@ -7,16 +7,16 @@ description: Inicializa y levanta el entorno de desarrollo local (setup.sh, rama
 
 Esta skill automatiza el inicio seguro de proyectos y asegura que se cumplan las políticas de control de versiones locales y remotas de MYNEXT.
 
-## 📋 Flujo de Inicialización (Al decir @setup, iniciar setup, o iniciar el entorno)
-Cuando el usuario solicite iniciar el setup de un proyecto o levantar el entorno, sigue estrictamente estos pasos:
+## 📋 Flujo de Inicialización (Al decir "iniciar el startup", "startup de Musa", "iniciar el setup", "setup", "@setup", o "iniciar el entorno")
+Cuando el usuario solicite iniciar el setup/startup de un proyecto o levantar el entorno, sigue estrictamente estos pasos:
 
-1. **Inicialización de Git**:
+1. **Garantía Inmediata de Rama `dev` (DESDE EL SEGUNDO 0 - OBLIGATORIO)**:
+   - Cambia o crea inmediatamente la rama `dev` ejecutando `git checkout dev || git checkout -b dev`.
+   - **REGLA DE SEGURIDAD ABSOLUTA**: Todo el desarrollo y las pruebas se realizan exclusivamente en la rama `dev` en modo aislamiento local. Está **terminantemente prohibido** hacer commit o push directo a `main` o a GitHub. NUNCA se hace merge a `main` ni push a GitHub sin la aprobación explícita del usuario ("ok", "me gustó", "merge", "fusión", "sube a git").
+
+2. **Inicialización de Git**:
    - Comprueba si existe la carpeta `.git`.
    - Si no existe, ejecuta `git init` en el directorio de trabajo actual.
-
-2. **Control de Ramas (Rama `dev` obligatoria)**:
-   - Cambia a la rama `dev` ejecutando `git checkout -b dev` o `git checkout dev`.
-   - **REGLA DE SEGURIDAD**: Todo el desarrollo y las pruebas se realizan exclusivamente en la rama `dev`. Está terminantemente prohibido hacer commit o push directo a `main` de manera automática.
 
 3. **Estructura de Documentación Inicial**:
    - Comprueba si existen los archivos `docs/SESSION_LATEST_ES.md` y `docs/ROADMAP.md`.
@@ -42,5 +42,5 @@ Cuando el usuario pida finalizar la sesión o terminar:
    - `docs/SESSION_LATEST_ES.md` (resumen en español de cambios, archivos modificados, problemas resueltos y pendientes).
    - `docs/ROADMAP.md` (tareas completadas, en progreso y próximas).
 2. Haz commit de todos los cambios de código realizados durante la sesión en la rama `dev` (p.ej. `git add .` y `git commit -m "update: ..."`).
-3. **NUNCA hagas merge a `main` ni hagas push a GitHub a menos que el usuario te lo pida explícitamente usando palabras como \"sincronizar\", \"merge\", \"push a main\" u \"ok para subir a producción\".**
+3. **NUNCA hagas merge a `main` ni hagas push a GitHub a menos que el usuario te lo pida explícitamente usando palabras como "sincronizar", "merge", "push a main", "fusión" u "ok para subir a producción".**
 4. Deja el proyecto limpio y documentado. No realices más cambios de código tras actualizar la documentación.
