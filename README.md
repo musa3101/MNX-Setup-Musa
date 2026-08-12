@@ -1,56 +1,40 @@
-# 🚀 Setup de Musa — MYNEXT
+# 🚀 Configuración y Control de Entorno — MYNEXT
 
-Bienvenido al repositorio maestro de configuración personal para **Google Antigravity IDE** y el entorno de desarrollo de **MYNEXT**.
+Bienvenido al repositorio maestro de configuración personal para **Google Antigravity IDE** y el entorno de desarrollo premium de **MYNEXT**.
 
-Este repositorio centraliza todos los servidores MCP, reglas de desarrollo, skills personalizadas, tipografías y documentación necesarias para trabajar de manera autónoma e inteligente.
+Este repositorio está estructurado en dos secciones principales para separar la documentación del setup reutilizable para nuevos proyectos.
 
 ---
 
 ## 🗂️ Estructura del Repositorio
 
-```
-setup-musa-mynext/
-├── 🔌 mcps/                   # Servidores MCP (Google Stitch, GitHub, Cloudflare, GitLab, Supabase)
-│   ├── mcp_config.json        # Configuración lista para copiar
-│   └── README.md              # Documentación e instrucciones de restauración
-├── 🎯 skills/                 # Skills personalizadas de Antigravity
-│   ├── gpt-taste/             # Reglas visuales y diseño vanguardista
-│   ├── i18nstack/             # Buenas prácticas para internacionalización
-│   ├── motion-design/         # Animaciones avanzadas y microinteracciones
-│   ├── skill-tailwind/        # Configuración de Tailwind CSS v4 (@theme)
-│   ├── uipro-max/             # UI/UX pro y componentes Bento Grid
-│   ├── setup-mynext/          # Inicialización local y control de flujo de sesión
-│   └── README.md              # Guía de skills
-├── 🎨 typography/             # Jerarquía tipográfica y emparejamiento de fuentes MYNEXT
-│   └── README.md              # Guía de fuentes y estéticas
-├── 📄 docs/                   # Documentación de sesiones y Roadmap
-│   ├── SESSION_LATEST_ES.md
-│   └── ROADMAP.md
-├── ⚙️ AGENTS.md                # Reglas globales estrictas de desarrollo
-├── ⚡ setup.sh                # Script de automatización para entorno local (dev branch + npm)
-└── 📦 mcp_config.json         # JSON maestro de configuración MCP en raíz
-```
+La raíz se organiza en dos carpetas clave:
+
+### 1. 📂 `referencia_informacion/`
+Contiene todas las guías de consulta, respaldos de configuración interna y bitácoras de sesión.
+* **`docs/`**: Bitácoras de sesión ([SESSION_LATEST_ES.md](file:///Users/musa/Downloads/setup-musa-mynext/referencia_informacion/docs/SESSION_LATEST_ES.md)) y el Roadmap del repositorio ([ROADMAP.md](file:///Users/musa/Downloads/setup-musa-mynext/referencia_informacion/docs/ROADMAP.md)).
+* **`mcps/`**: Respaldos del archivo maestro `mcp_config.json` para restaurar los servidores MCP (GitHub, Cloudflare, GitLab, Supabase, Stitch) en cualquier equipo.
+* **`CONNECT_CHROME_CDP.md`**: Guía para conectar Google Chrome al IDE con depuración remota.
+
+### 2. 📂 `setup_musa/`
+El **núcleo de configuración premium** listo para ser copiado y utilizado al iniciar cualquier nuevo proyecto web de MYNEXT.
+* **`skills/`**: Las habilidades de desarrollo premium nativas de Antigravity (Tipografía `gpt-taste`, Localización `i18nstack`, Animaciones `motion-design`, Bento Grids `uipro-max`, Tailwind `skill-tailwind`, y Setup `setup-mynext`).
+* **`templates/`**: Archivos de configuración listos para iniciar proyectos rápidamente:
+  * `.env.example`: Estructura base para credenciales de Supabase y Cloudflare.
+  * `.gitignore`: Filtro de exclusión optimizado para evitar fugas de claves o dependencias.
+  * `.prettierrc`: Reglas estéticas y de formateo de código estandarizadas.
+* **`typography/`**: Guías de emparejamiento tipográfico y jerarquías estéticas de MYNEXT.
+* **`AGENTS.md`**: Reglas globales que rigen el comportamiento del agente de inteligencia artificial.
+* **`setup.sh`**: Script para inicializar automáticamente el entorno local y configurar sistemas keep-alive para evitar el pausado de Supabase.
 
 ---
 
-## 🔌 Servidores MCP Incluidos
+## 🛠️ Cómo iniciar un nuevo proyecto con este Setup
 
-1. **Google Stitch MCP**: Integración con API Key privada para creación de páginas web autónoma.
-2. **GitHub MCP**: Control total de repositorios, archivos y pull requests.
-3. **Cloudflare MCP**: Gestión de Workers, KV, R2, D1 y despliegues.
-4. **GitLab MCP**: Integración con repositorios GitLab.
-5. **Supabase MCP**: Conexión directa a base de datos y backend.
-
----
-
-## 🛠️ Restauración en una Nueva Sesión o Equipo
-
-Para restaurar tu entorno de desarrollo en cualquier momento:
-
-```bash
-# Copiar configuración MCP a Antigravity IDE
-cp mcps/mcp_config.json ~/.gemini/antigravity-ide/mcp_config.json
-```
+Cuando comiences un desarrollo web nuevo:
+1. Copia todo el contenido de la carpeta [setup_musa](file:///Users/musa/Downloads/setup-musa-mynext/setup_musa/) a la raíz de tu nuevo proyecto.
+2. Pásame el control del proyecto y dime que lea la configuración.
+3. Yo analizaré las *skills*, las reglas del archivo `AGENTS.md` y las plantillas para comenzar a trabajar bajo tus estrictos lineamientos premium de diseño y código.
 
 ---
 
