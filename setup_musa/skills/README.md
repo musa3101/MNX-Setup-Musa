@@ -23,3 +23,7 @@ En esta carpeta se encuentran las **skills** personalizadas registradas para Ant
 
 ### 6. `setup-mynext/`
 - **Descripción**: Inicializa y levanta el entorno de desarrollo local (setup.sh, rama dev, docs) al iniciar un nuevo proyecto o sesión.
+
+### 7. `impeccable/`
+- **Descripción**: Framework de diseño y detector de anti-patrones para eliminar el "AI slop" en interfaces web, con 23 comandos de refinamiento (audit, polish, typeset, bolder, etc.).
+
