@@ -34,6 +34,14 @@ Este documento contiene el inventario completo y la configuración de todos los 
 - **Paquete**: `@supabase/mcp-server-supabase@latest`
 - **Access Token**: `sbp_576e9fa63e5f7ac0bf1b1f0588b3a758e76d683b`
 
+### 6. 🔍 REA MCP (Reverse Engineer Anything)
+- **Paquete**: `rea-agents@latest`
+- **Comando**: `npx -y rea-agents@latest --mcp`
+- **Propósito**: Suite universal de ingeniería inversa local con más de 200 herramientas.
+- **Capacidades**: Descompilación e inspección de ejecutables nativos (Mach-O, ELF, PE), extracción y análisis de paquetes Electron (`app.asar`, bundles V8), módulos `.node`, depuración dinámica con LLDB, puentes con Hopper y Ghidra, y análisis de aplicaciones Android y .NET.
+- **Habilidades (Skills) asociadas**: `reverse-engineer-anything`.
+- **Instrucción para el Agente**: Cuando el usuario solicite *"usa el mcp de rea para..."*, *"analiza este binario..."* o tareas de ingeniería inversa, invocar directamente las herramientas del servidor MCP de REA o sus comandos de terminal.
+
 ---
 
 ## 🚀 Instrucciones de Restauración Rápidas
