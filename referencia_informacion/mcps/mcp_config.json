@@ -58,6 +58,16 @@
       ],
       "env": {},
       "disabled": false
+    },
+    "rea": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "rea-agents@latest",
+        "--mcp"
+      ],
+      "env": {},
+      "disabled": false
     }
   }
 }
