@@ -1,0 +1,80 @@
+{
+  "mcpServers": {
+    "stitch": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://stitch.googleapis.com/mcp",
+        "--header",
+        "X-Goog-Api-Key: YOUR_GOOGLE_API_KEY"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "github-mcp-server": {
+      "command": "/usr/local/bin/npx",
+      "args": [
+        "--no-install",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"
+      },
+      "disabled": false
+    },
+    "cloudflare": {
+      "command": "/usr/local/bin/npx",
+      "args": [
+        "--yes",
+        "@cloudflare/mcp-server-cloudflare",
+        "run",
+        "YOUR_CLOUDFLARE_ACCOUNT_ID"
+      ],
+      "env": {
+        "CLOUDFLARE_API_TOKEN": "YOUR_CLOUDFLARE_API_TOKEN"
+      },
+      "disabled": false
+    },
+    "gitlab": {
+      "command": "/usr/local/bin/npx",
+      "args": [
+        "--yes",
+        "@modelcontextprotocol/server-gitlab"
+      ],
+      "env": {
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "YOUR_GITLAB_PERSONAL_ACCESS_TOKEN",
+        "GITLAB_API_URL": "https://gitlab.com/api/v4"
+      },
+      "disabled": false
+    },
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--access-token",
+        "YOUR_SUPABASE_ACCESS_TOKEN"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "rea": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "rea-agents@latest",
+        "--mcp"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "21st": {
+      "url": "https://21st.dev/api/mcp",
+      "headers": {
+        "x-api-key": "YOUR_21ST_API_KEY"
+      }
+    }
+  }
+}
+

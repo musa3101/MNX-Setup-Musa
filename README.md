@@ -1,41 +1,48 @@
-# 🚀 Configuración y Control de Entorno — MYNEXT
+# 🚀 MYNEXT Setup 2.0 — Repositorio Maestro
 
-Bienvenido al repositorio maestro de configuración personal para **Google Antigravity IDE** y el entorno de desarrollo premium de **MYNEXT**.
-
-Este repositorio está estructurado en dos secciones principales para separar la documentación del setup reutilizable para nuevos proyectos.
+Estructura modular y limpia para los proyectos de desarrollo web de **Musa / MYNEXT**.
 
 ---
 
-## 🗂️ Estructura del Repositorio
+## 🗂️ Organización en 2 Módulos Independientes
 
-La raíz se organiza en dos carpetas clave:
-
-### 1. 📂 `referencia_informacion/`
-Contiene todas las guías de consulta, respaldos de configuración interna y bitácoras de sesión.
-* **`docs/`**: Bitácoras de sesión ([SESSION_LATEST_ES.md](file:///Users/musa/Downloads/setup-musa-mynext/referencia_informacion/docs/SESSION_LATEST_ES.md)) y el Roadmap del repositorio ([ROADMAP.md](file:///Users/musa/Downloads/setup-musa-mynext/referencia_informacion/docs/ROADMAP.md)).
-* **`mcps/`**: Respaldos del archivo maestro `mcp_config.json` para restaurar los servidores MCP (GitHub, Cloudflare, GitLab, Supabase, Stitch) en cualquier equipo.
-* **`CONNECT_CHROME_CDP.md`**: Guía para conectar Google Chrome al IDE con depuración remota.
-
-### 2. 📂 `setup_musa/`
-El **núcleo de configuración premium** listo para ser copiado y utilizado al iniciar cualquier nuevo proyecto web de MYNEXT.
-* **`skills/`**: Las habilidades de desarrollo premium nativas de Antigravity (Tipografía `gpt-taste`, Localización `i18nstack`, Animaciones `motion-design`, Bento Grids `uipro-max`, Tailwind `skill-tailwind`, y Setup `setup-mynext`).
-* **`templates/`**: Archivos de configuración listos para iniciar proyectos rápidamente:
-  * `.env.example`: Estructura base para credenciales de Supabase y Cloudflare.
-  * `.gitignore`: Filtro de exclusión optimizado para evitar fugas de claves o dependencias.
-  * `.prettierrc`: Reglas estéticas y de formateo de código estandarizadas.
-* **`typography/`**: Guías de emparejamiento tipográfico y jerarquías estéticas de MYNEXT.
-* **`AGENTS.md`**: Reglas globales que rigen el comportamiento del agente de inteligencia artificial.
-* **`setup.sh`**: Script para inicializar automáticamente el entorno local y configurar sistemas keep-alive para evitar el pausado de Supabase.
+```text
+setup 2.0/
+├── 🎯 setup-musa/                 # MÓDULO 1: NÚCLEO OPERATIVO (Prioridad)
+│   ├── AGENTS.md                  # Reglas del agente (rama dev, merge protegido, anti-slop)
+│   ├── SETUP_MUSA.md              # Protocolo completo de trabajo
+│   ├── interview.md               # Entrevista inicial para nuevos proyectos
+│   ├── templates/                 # Plantilla protegida de .gitignore (para blindar .env)
+│   └── scripts/
+│       ├── session-start.sh       # Abre sesión, pasa a dev, registra .musa/session.json
+│       ├── mini-merge.sh          # Mini-merge seguro con worktree (ideal para 2 ventanas)
+│       └── session-end.sh         # Cierra sesión y prepara resumen para docs/
+│
+├── 🧠 skills-library/             # MÓDULO 2: BIBLIOTECA DE SKILLS (Independiente)
+│   ├── README.md                  # Inventario de skills curadas
+│   ├── sync-skills.sh             # Compara repo ↔ IDE y pregunta antes de copiar
+│   └── skills/                    # 19 skills de diseño luxury, motion, backend y seguridad
+│
+└── 🗄️ config-backups/             # RESPALDOS SEGUROS
+    ├── docs/
+    │   └── MCP_CONFIG_SETUP.md    # Inventario MCP (sin tokens en texto plano)
+    ├── mcps/
+    │   ├── mcp_config.template.json # Plantilla para restaurar en IDEs limpios
+    │   └── README.md
+    └── chrome-cdp/
+        └── CONNECT_CHROME_CDP.md  # Conexión Chrome DevTools CDP
+```
 
 ---
 
-## 🛠️ Cómo iniciar un nuevo proyecto con este Setup
+## 💡 Puntos Clave
 
-Cuando comiences un desarrollo web nuevo:
-1. Copia todo el contenido de la carpeta [setup_musa](file:///Users/musa/Downloads/setup-musa-mynext/setup_musa/) a la raíz de tu nuevo proyecto.
-2. Pásame el control del proyecto y dime que lea la configuración.
-3. Yo analizaré las *skills*, las reglas del archivo `AGENTS.md` y las plantillas para comenzar a trabajar bajo tus estrictos lineamientos premium de diseño y código.
+1. **Setup y Skills son totalmente independientes**: El setup no te obliga a instalar skills si ya las tienes en tu IDE. Solo se sincronizan si tú lo pides.
+2. **Cero Keep-Alive**: Se eliminaron workflows automáticos innecesarios.
+3. **Cero Secretos Expuestos**: Ningún token personal vive en este repositorio.
+4. **Protección Real contra Merges**:
+   - Frase obligatoria: **"Tienes mi OK, haz el merge"**.
+   - Doble confirmación antes de subir a Cloudflare o GitHub.
+   - **El merge NO cierra la sesión**: se sigue en `dev`.
+   - Soporte para **dos ventanas abiertas**: `mini-merge.sh` no toca la rama de tu otra ventana.
 
----
-
-*Repositorio Privado de Musa — MYNEXT*
