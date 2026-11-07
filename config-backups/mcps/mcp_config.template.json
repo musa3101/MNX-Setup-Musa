@@ -74,7 +74,55 @@
       "headers": {
         "x-api-key": "YOUR_21ST_API_KEY"
       }
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@context7/mcp-server"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "canva": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@canva/mcp-server"
+      ],
+      "env": {
+        "CANVA_API_KEY": "YOUR_CANVA_API_KEY"
+      },
+      "disabled": false
+    },
+    "testsprite": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@testsprite/mcp-server"
+      ],
+      "env": {
+        "TESTSPRITE_API_KEY": "YOUR_TESTSPRITE_API_KEY"
+      },
+      "disabled": false
+    },
+    "filmcraft": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "filmcraft-mcp"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "photon": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "photon-mcp"
+      ],
+      "env": {},
+      "disabled": false
     }
   }
 }
-

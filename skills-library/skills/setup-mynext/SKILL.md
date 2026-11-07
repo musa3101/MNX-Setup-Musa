@@ -1,46 +1,40 @@
 ---
 name: setup-mynext
-description: Inicialización y arranque del entorno local de desarrollo para proyectos MYNEXT.
+description: Inicialización y arranque del entorno local de desarrollo para proyectos MYNEXT (Setup 2.0 de Musa).
 ---
 
-# 🚀 Skill de Setup y Control de Flujo: setup-mynext
+# 🚀 Skill de Setup y Control de Flujo: setup-mynext (Setup 2.0)
 
-Esta skill automatiza el inicio seguro de proyectos y asegura que se cumplan las políticas de control de versiones locales y remotas de MYNEXT.
+Esta skill automatiza el inicio seguro de proyectos y asegura que se cumplan las políticas de control de versiones locales y remotas de MYNEXT Setup 2.0.
 
-## 📋 Flujo de Inicialización (Al decir "iniciar el startup", "startup de Musa", "iniciar el setup", "setup", "@setup", o "iniciar el entorno")
-Cuando el usuario solicite iniciar el setup/startup de un proyecto o levantar el entorno, sigue estrictamente estos pasos:
+## 📋 Flujo de Inicialización (Al decir "setup de Musa", "prepárame el setup de Musa", "@setup", "abre el setup de Musa", etc.)
 
 1. **Garantía Inmediata de Rama `dev` (DESDE EL SEGUNDO 0 - OBLIGATORIO)**:
    - Cambia o crea inmediatamente la rama `dev` ejecutando `git checkout dev || git checkout -b dev`.
-   - **REGLA DE SEGURIDAD ABSOLUTA**: Todo el desarrollo y las pruebas se realizan exclusivamente en la rama `dev` en modo aislamiento local. Está **terminantemente prohibido** hacer commit o push directo a `main` o a GitHub. NUNCA se hace merge a `main` ni push a GitHub sin la aprobación explícita del usuario ("ok", "me gustó", "merge", "fusión", "sube a git").
+   - **REGLA DE SEGURIDAD ABSOLUTA**: Todo el desarrollo y las pruebas se realizan exclusivamente en la rama `dev`. Está **terminantemente prohibido** trabajar en `main`.
 
-2. **Inicialización de Git**:
-   - Comprueba si existe la carpeta `.git`.
-   - Si no existe, ejecuta `git init` en el directorio de trabajo actual.
+2. **Apertura de Sesión**:
+   - Comprueba si existe `scripts/session-start.sh`. Si no existe, cópialo desde `/Users/musa/.gemini/config/setup-musa/scripts/session-start.sh` a la carpeta `scripts/` del proyecto y dale permisos de ejecución (`chmod +x scripts/*.sh`).
+   - Ejecuta `bash scripts/session-start.sh`.
+   - Este script genera `.musa/session.json` (`session: open`), crea `.musa/merges.log` y agrega `.musa/` a `.git/info/exclude` para que el estado no ensucie Git.
 
-3. **Estructura de Documentación Inicial**:
-   - Comprueba si existen los archivos `docs/SESSION_LATEST_ES.md` y `docs/ROADMAP.md`.
-   - Si no existen, crea la carpeta `docs/` y genera dichos archivos vacíos o con la plantilla estándar para cumplir con las reglas de sesión globales.
+3. **Cero Keep-Alive y Respeto Operativo**:
+   - No se crean workflows automáticos de Keep-Alive.
+   - No se instalan dependencias ni se levantan servidores salvo que el usuario lo solicite expresamente (ej. "dame el localhost").
+   - No se instalan skills de forma automática. Setup y Skills son independientes.
 
-4. **Ejecución de `setup.sh` y Configuración Keep-Alive**:
-   - Comprueba si existe `setup.sh` en la raíz del proyecto.
-   - Si existe, ejecútalo (`bash setup.sh`).
-   - El script `setup.sh` debe, además de levantar el entorno local, detectar si existe un archivo `.env` con credenciales de Supabase (`VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`). Si existen y no están configuradas las automatizaciones Keep-Alive, debe generar automáticamente los archivos:
-     - `.github/workflows/keep-alive.yml` (Para GitHub Actions)
-     - `.gitlab-ci.yml` (Para GitLab CI)
-     Ambos flujos deben realizar un ping periódico (cada martes y viernes) al endpoint universal de salud de Supabase `/auth/v1/health` para evitar que las bases de datos de planes gratuitos se pausen por inactividad.
-   - Si `setup.sh` no existe, y detectas que es un proyecto Node (p.ej., hay `package.json`), crea un `setup.sh` completo que incluya esta lógica y ejecútalo.
-   - Levanta el servidor local (`npm run dev` o el comando correspondiente) usando la ejecución de comandos de Antigravity (se ejecuta como tarea de fondo).
+4. **Entrevista Inicial (Solo en proyectos nuevos)**:
+   - Si es la primera vez que se trabaja en el proyecto, realiza las preguntas clave de `interview.md` de una en una.
 
-5. **Parada y Confirmación**:
-   - Una vez levantado el entorno local y configurados los Keep-Alive correspondientes, **DETENTE inmediatamente** y muestra un resumen al usuario indicando que el servidor de desarrollo está activo en localhost, las automatizaciones Keep-Alive creadas y que estás listo para trabajar en la rama `dev`.
-   - Espera a que el usuario te dé confirmación antes de hacer cualquier modificación en los archivos del proyecto.
+## 🛡️ Protocolo Estricto de Merge y Deploy (Cloudflare & Git)
+1. Solo se autoriza merge con la frase exacta: **"Tienes mi OK, haz el merge"**. Un "ok" simple no es válido.
+2. **Doble confirmación**: Advertir al usuario: *"Esto subirá cambios a main y desplegará la web en Cloudflare. ¿Estás seguro?"* y esperar respuesta.
+3. Usar `scripts/mini-merge.sh`:
+   - Utiliza `git worktree` temporal para hacer cherry-pick o merge sin cambiar la rama de trabajo de la carpeta principal.
+   - Permite que 2 ventanas de Antigravity trabajen a la vez sin interferirse.
+4. **Un merge NO cierra la sesión**: se sigue en `dev` y se anota el merge en `.musa/merges.log`.
 
-## 🛑 Flujo de Fin de Sesión (Al decir @final, @end, terminar, o similar)
-Cuando el usuario pida finalizar la sesión o terminar:
-1. Asegúrate de actualizar los archivos de documentación obligatorios:
-   - `docs/SESSION_LATEST_ES.md` (resumen en español de cambios, archivos modificados, problemas resueltos y pendientes).
-   - `docs/ROADMAP.md` (tareas completadas, en progreso y próximas).
-2. Haz commit de todos los cambios de código realizados durante la sesión en la rama `dev` (p.ej. `git add .` y `git commit -m "update: ..."`).
-3. **NUNCA hagas merge a `main` ni hagas push a GitHub a menos que el usuario te lo pida explícitamente usando palabras como "sincronizar", "merge", "push a main", "fusión" u "ok para subir a producción".**
-4. Deja el proyecto limpio y documentado. No realices más cambios de código tras actualizar la documentación.
+## 🛑 Fin de Sesión (Al decir @final, @end, cierra sesión o terminar)
+1. Ejecuta `bash scripts/session-end.sh` para marcar la sesión como cerrada en `.musa/session.json`.
+2. Actualiza `docs/SESSION_LATEST_ES.md` y `docs/ROADMAP.md` (resumen en español, qué se hizo incluyendo mini-merges, archivos modificados, problemas resueltos, qué queda pendiente y qué recomiendas para la próxima sesión).
+3. No realices cambios de código adicionales.

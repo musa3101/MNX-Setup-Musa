@@ -21,7 +21,7 @@ setup 2.0/
 ├── 🧠 skills-library/             # MÓDULO 2: BIBLIOTECA DE SKILLS (Independiente)
 │   ├── README.md                  # Inventario de skills curadas
 │   ├── sync-skills.sh             # Compara repo ↔ IDE y pregunta antes de copiar
-│   └── skills/                    # 19 skills de diseño luxury, motion, backend y seguridad
+│   └── skills/                    # 66 skills curadas (diseño luxury, motion, backend, seguridad, testing, vídeo y diseño gráfico)
 │
 └── 🗄️ config-backups/             # RESPALDOS SEGUROS
     ├── docs/

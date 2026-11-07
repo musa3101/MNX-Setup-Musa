@@ -15,6 +15,11 @@ En esta carpeta se encuentra la plantilla maestra de configuración para los ser
 | ⚡ **Supabase** | Base de datos Postgres, Auth, Storage y RLS | `@supabase/mcp-server-supabase` + Access Token |
 | 🔍 **REA** | Suite de ingeniería inversa universal | `npx -y rea-agents@latest --mcp` |
 | 🪄 **21st** | Componentes y snippets de diseño reactivo | API endpoint `https://21st.dev/api/mcp` |
+| 📚 **Context7** | Documentación oficial en tiempo real | `@context7/mcp-server` |
+| 🎨 **Canva** | Edición y diseño gráfico asistido | `@canva/mcp-server` + API Key |
+| 🧪 **TestSprite** | Suites de pruebas frontend y backend con IA | `@testsprite/mcp-server` + API Key |
+| 🎬 **FilmCraft** | Suite de edición de vídeo cinematográfico | `filmcraft-mcp` |
+| 🖼️ **Photon** | Suite gráfica y retoque multicapa | `photon-mcp` |
 
 ---
 
@@ -26,4 +31,3 @@ En esta carpeta se encuentra la plantilla maestra de configuración para los ser
    ```
 2. Rellena tus tokens y credenciales en `~/.gemini/antigravity/mcp_config.json`.
 3. Reinicia o recarga los servidores MCP en el panel de Antigravity IDE.
-
